@@ -1,0 +1,13 @@
+lockfileVersion: 5.4
+
+specifiers:
+  csv-stringify: ^6.0.5
+
+dependencies:
+  csv-stringify: 6.0.5
+
+packages:
+
+  /csv-stringify/6.0.5:
+    resolution: {integrity: sha512-7xpV3uweJCFF/Ssn56l3xsR/k2r3UqszwjEhej9qEn2cCPzyK1WyHCgoUVzBA792x8HbwonNX7CU9XM2K5s5yw==}
+    dev: false
