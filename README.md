@@ -22,7 +22,7 @@ Start het script en geef het pad naar de score-bestanden op:
 pnpm start "<HET PAD>"
 ```
 
-Het script genereert een bestand met als naam `scores.csv`. Dit bevat alle scores per groep en opdracht, gesorteerd op groepsnaam.
+Het script genereert een bestand met als naam `scores.csv` op het opgegeven pad. Dit bevat alle scores per groep en opdracht, gesorteerd op groepsnaam.
 
 ## Opmaak score-bestand
 
@@ -50,4 +50,4 @@ Het script gaat ervan uit dat het bestand deze volgorde strikt hanteert. Bijvoor
 
 ## Problemen
 
-Raadpleeg het `debug.log` bestand om te controleren wat er precies ingelezen werd. Aan de hand van dit bestand zie je per opdracht welke groep welke score kreeg.
+Raadpleeg het `debug.log` (op het opgegeven pad) bestand om te controleren wat er precies ingelezen werd. Aan de hand van dit bestand zie je per opdracht welke groep welke score kreeg.
