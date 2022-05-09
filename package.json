@@ -1,12 +1,12 @@
 {
   "name": "selab-scores",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.mjs",
   "type": "module",
   "author": "Thomas Aelbrecht <thomas.aelbrecht@hogent.be>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node ./src/index.mjs"
+    "start": "node index.mjs"
   },
   "dependencies": {
     "csv-stringify": "^6.0.5"

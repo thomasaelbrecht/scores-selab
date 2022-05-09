@@ -1,19 +1,14 @@
 import fs from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import readline from 'node:readline';
 import { stringify } from 'csv-stringify/sync';
 
-const DEBUG_FILE = 'debug.log';
-const OUTPUT_FILE = 'scores.csv';
-
-// Clear debug file
-await fs.promises.writeFile(DEBUG_FILE, '');
 
 if (process.argv.length <= 2) {
   throw new Error('You must pass a directory containing all markdown files for evaluation');
 }
 
-const path = process.argv[2];
+const path = resolve(process.argv[2]);
 
 const pathStats = await fs.promises.stat(path);
 
@@ -21,9 +16,15 @@ if (!pathStats.isDirectory()) {
   throw new Error('The specified path is not a directory');
 }
 
+const debugFilePath = join(path, 'debug.log');
+const outputFilePath = join(path, 'scores.csv');
+
+// Clear debug file
+await fs.promises.writeFile(debugFilePath, '');
+
 const scores = new Map();
 
-const debugFile = fs.createWriteStream(DEBUG_FILE);
+const debugFile = fs.createWriteStream(debugFilePath);
 
 const files = await fs.promises.readdir(path);
 await Promise.all(
@@ -37,7 +38,7 @@ const csvOutput = stringify(orderedByGroup, {
   header: true,
   delimiter: ';',
 });
-await fs.promises.writeFile(OUTPUT_FILE, csvOutput);
+await fs.promises.writeFile(outputFilePath, csvOutput);
 
 debugFile.close();
 
